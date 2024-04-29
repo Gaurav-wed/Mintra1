@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deployment') {
             steps {
-                sh 'cp target/pipeline.war /home/gaurav/Devops/apache-tomcat-9.0.88/webapps'
+                sh 'cp target/Mintra1.war /home/gaurav/Devops/apache-tomcat-9.0.88/webapps'
             }
         }
         
