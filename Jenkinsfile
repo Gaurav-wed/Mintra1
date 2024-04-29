@@ -20,9 +20,8 @@ pipeline {
         
         stage('slack') {
             steps {
-                slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'Mintra1', color: 'good', message: 'Welcome to Grras in Devops with Swapnil Mahajan', teamDomain: 'DevOps-Grras-Projacts', tokenCredentialId: '665ad951-6c57-4472-aa0c-1c93a6450104'
+                slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'Mintra1', color: 'good', message: 'Welcome to Grras in Devops with Swapnil Mahajan', notifyCommitters: true, teamDomain: 'DevOps-Grras-Projacts', tokenCredentialId: '665ad951-6c57-4472-aa0c-1c93a6450104'
             }
         }
     }
 }
-
