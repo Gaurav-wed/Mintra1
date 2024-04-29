@@ -14,14 +14,15 @@ pipeline {
         }
         stage('Deployment') {
             steps {
-                sh 'cp target/mintra1.war /home/gaurav/Devops/apache-tomcat-9.0.88/webapps'
+                sh 'cp target/pipeline.war /home/gaurav/Devops/apache-tomcat-9.0.88/webapps'
+            }
+        }
+        
+        stage('slack') {
+            steps {
+                slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'mintra', color: 'good', message: 'Welcome to Devops in GRRAS with Swapnil Mahajan', teamDomain: 'DevOps-Grras-Projacts', tokenCredentialId: 'c164738e-3163-49fb-9d07-71abf5d8f78a'
             }
         }
     }
-    
-    stage('slack' ) {
-        steps {
-            slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'mintra12', color: 'good', message: 'welcome to Devops in Grras with Swapnil Mahajan', teamDomain: 'DevOps-Grras-Projacts', tokenCredentialId: '344d2c29-4eb6-47cc-a55a-76698798a410'
-        }
-    }
 }
+
